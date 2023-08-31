@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7e8d5370-775e-4d22-9832-4ba6608da439" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Entrada.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Entrada.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Prints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Prints.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/nexus/Entrada.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -25,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="160">
+              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -34,17 +30,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Entrada.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../2Semestre-SPTech/Linguagem de Programacao/Lista 02 - Nivelamento (Randomicos e Laços de Repetição)/Lista02Exercicios/src/main/java/Sorteio.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+            <state relative-caret-position="480">
+              <caret line="30" selection-start-line="30" selection-end-line="30" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -52,8 +39,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Prints.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="5" column="107" lean-forward="true" selection-start-line="5" selection-start-column="107" selection-end-line="5" selection-end-column="107" />
+            <state relative-caret-position="176">
+              <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+              <folding>
+                <element signature="method#boasVindas#0;class#Prints#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -75,9 +65,9 @@
       <list>
         <option value="$PROJECT_DIR$/src/main/java/nexus/login.java" />
         <option value="$PROJECT_DIR$/src/main/java/nexus/LoginMetodo.java" />
-        <option value="$PROJECT_DIR$/src/main/java/nexus/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/nexus/CLS.java" />
         <option value="$PROJECT_DIR$/src/main/java/nexus/Entrada.java" />
+        <option value="$PROJECT_DIR$/src/main/java/nexus/Login.java" />
         <option value="$PROJECT_DIR$/src/main/java/nexus/Prints.java" />
       </list>
     </option>
@@ -172,7 +162,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1693488315446" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1693489587798" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="xpath.settings" />
@@ -238,12 +228,12 @@
       <option name="presentableId" value="Default" />
       <updated>1693439072533</updated>
       <workItem from="1693439089697" duration="2904000" />
-      <workItem from="1693485911560" duration="2301000" />
+      <workItem from="1693485911560" duration="3133000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5205000" />
+    <option name="totallyTimeSpent" value="6037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -268,7 +258,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3296" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" show_stripe_button="false" weight="0.3296" />
@@ -307,20 +297,6 @@
         <state relative-caret-position="-378" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../2Semestre-SPTech/Linguagem de Programacao/Lista 02 - Nivelamento (Randomicos e Laços de Repetição)/Lista02Exercicios/src/main/java/Sorteio.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nexus/CLS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -328,17 +304,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../2Semestre-SPTech/Linguagem de Programacao/Lista 02 - Nivelamento (Randomicos e Laços de Repetição)/Lista02Exercicios/src/main/java/Sorteio.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Entrada.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="28" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
+        <state relative-caret-position="480">
+          <caret line="30" selection-start-line="30" selection-end-line="30" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Login.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Prints.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="107" lean-forward="true" selection-start-line="5" selection-start-column="107" selection-end-line="5" selection-end-column="107" />
+        <state relative-caret-position="176">
+          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding>
+            <element signature="method#boasVindas#0;class#Prints#0" />
+          </folding>
         </state>
       </provider>
     </entry>
