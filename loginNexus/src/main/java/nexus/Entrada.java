@@ -28,3 +28,4 @@ public class Entrada {
         } while (!logado);
     }
 }
+// Realizado Pela Nexus Enterprises :)
