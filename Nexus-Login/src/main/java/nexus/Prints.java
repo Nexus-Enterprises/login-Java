@@ -38,13 +38,13 @@ public class Prints {
         System.out.println("\nSessão Finalizada!");
     }
     static void day() {
-        System.out.println("\nInsira o Dia em que naseu: ");
+        System.out.println("\nInsira o Dia em que nasceu: ");
     }
     static void month() {
-        System.out.println("\nEscreva o Mês em que naseu: ");
+        System.out.println("\nEscreva o Mês em que nasceu: ");
     }
     static void year() {
-        System.out.println("\nInsira o Ano em que naseu: ");
+        System.out.println("\nInsira o Ano em que nasceu: ");
     }
     static void user() {
         System.out.println("\nInsira seu user: ");
@@ -52,8 +52,8 @@ public class Prints {
     static void pass() {
         System.out.println("\nInsira sua senha: ");
     }
-    static void login(){
-        System.out.println();
+    static void afterLogin(){
+        System.out.println("");
     }
 }
 // Realizado Pela Nexus Enterprises :)
