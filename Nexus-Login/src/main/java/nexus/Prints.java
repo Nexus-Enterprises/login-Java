@@ -53,7 +53,16 @@ public class Prints {
         System.out.println("\nInsira sua senha: ");
     }
     static void afterLogin(){
-        System.out.println("");
+        System.out.println("----------------------------------------------");
+
+    }
+    static void dayError(){
+        System.out.println("O dia inserido está incorreto!!");
+        System.out.println("Por favor insira um dia válido");
+    }
+    static void anoError(){
+        System.out.println("O Ano inserido está incorreto!!");
+        System.out.println("Por favor insira um ano válido");
     }
 }
 // Realizado Pela Nexus Enterprises :)

@@ -62,6 +62,7 @@ public class Menu {
                     if (username.equals(user.get(i))) {
                         if (password.equals(pass.get(i)) && tokens.equals(token.get(i))) {
                             Prints.autenticado();
+                            System.out.printf("\nSeja Bem-Vindo %s!!\n", user.get(i));
                             sair = true;
                             logado = true;
                         } else if (!password.equals(pass.get(i)) && tokens.equals(token.get(i))) {
@@ -80,6 +81,10 @@ public class Menu {
 
     private void cadastro() {
         Scanner scanner = new Scanner(System.in);
+        boolean dia = false;
+        boolean meses = false;
+        boolean ano = false;
+        int day = 0;
 
         Prints.user();
         String username = scanner.nextLine();
@@ -87,63 +92,82 @@ public class Menu {
 
         Prints.pass();
         String password = scanner.nextLine();
+
         pass.add(password);
+        while (dia != true) {
+            Prints.day();
+            int dias = scanner.nextInt();
+            if (dias > 0 && dias <= 31) {
+                day = dias;
+                dia = true;
+            } else {
+                Prints.dayError();
+            }
+        }
 
-        Prints.day();
-        int day = scanner.nextInt();
-        scanner.nextLine();
+
         int month = 0;
-
-        boolean invalido = true;
-
-        while (invalido == true) {
+        while (meses != true) {
             Prints.month();
-            String mes = scanner.nextLine().toLowerCase();
+
+            String mes = scanner.nextLine();
+            mes = scanner.nextLine();
+            month = 0;
+
             // Verificando se o mês inserido é válido ou não
             if (mes.equalsIgnoreCase("janeiro") || mes.equals("1") || mes.equals("01")) {
                 month = 1;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("feveriro") || mes.equals("2") || mes.equals("02")) {
                 month = 2;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("marco") || mes.equals("3") || mes.equals("03")) {
                 month = 3;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("abril") || mes.equals("4") || mes.equals("04")) {
                 month = 4;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("maio") || mes.equals("5") || mes.equals("05")) {
                 month = 5;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("junho") || mes.equals("6") || mes.equals("06")) {
                 month = 6;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("julho") || mes.equals("7") || mes.equals("07")) {
                 month = 7;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("agosto") || mes.equals("8") || mes.equals("08")) {
                 month = 8;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("setembro") || mes.equals("9") || mes.equals("09")) {
                 month = 9;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("outubro") || mes.equals("10")) {
                 month = 10;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("novembro") || mes.equals("11")) {
                 month = 11;
-                invalido = false;
+                meses = true;
             } else if (mes.equalsIgnoreCase("dezembro") || mes.equals("12")) {
                 month = 12;
-                invalido = false;
+                meses = true;
             } else {
                 System.out.println("Mês inválido");
             }
         }
 
-        Prints.year();
-        int year = scanner.nextInt();
+        int year = 0;
 
+        while (!ano) {
+            Prints.year();
+            year = scanner.nextInt();
+
+            if (year >= 1900 && year <= 2023) {
+                ano = true;
+            } else {
+                Prints.anoError();
+            }
+        }
         int num = ThreadLocalRandom.current().nextInt(1, 100001);
 
         String tokenF = String.valueOf((year + month + day) * num);
@@ -155,10 +179,6 @@ public class Menu {
 
         exibirMenu();
 
-    }
-
-    void areaAposLogin() {
-        System.out.println("Você está logado!!");
     }
 }
 // Realizado Pela Nexus Enterprises :)
