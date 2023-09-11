@@ -41,16 +41,12 @@ public class Menu {
     }
 
     void login() {
-        if (user.isEmpty()) {
-            System.out.println("Não Existe usuario cadastrado no Sistema");
-            exibirMenu();
-        }
-
         Scanner scanner = new Scanner(System.in);
 
         boolean logado = false;
-        if (user.size() > 0) {
-            while (!logado) {
+
+        while (!logado) {
+            if (user.size() > 0) {
                 Prints.username();
                 username = scanner.nextLine();
                 Prints.password();
@@ -74,6 +70,10 @@ public class Menu {
                         }
                     }
                 }
+            } else {
+                System.out.println("Não Existe usuario cadastrado no Sistema");
+                exibirMenu();
+                logado = true;
             }
         }
     }
