@@ -174,7 +174,7 @@ public class Menu {
 
         tokenF = ((((((((tokenF.replace("1", "A").replace("3", "B").replace("5", "C").replace("7", "D").replace("9", "E")))))))));
 
-        System.out.printf("|    Seu Token foi Gerado: %s    |\n", tokenF);
+        System.out.printf("\n\n|    Seu Token foi Gerado: %s    |\n", tokenF);
         token.add(tokenF);
 
         exibirMenu();
