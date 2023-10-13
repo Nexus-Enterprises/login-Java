@@ -9,17 +9,17 @@ public class Memoria {
     public String memoria() {
         Looca looca = new Looca();
         Double memEmUso = Double.valueOf(looca.getMemoria().getEmUso());
-        Double emUso = memEmUso / 931322574.615;
+        Double emUso = ((memEmUso / 1024) / 1024) / 1024;
         Double memDisponivel = Double.valueOf(looca.getMemoria().getDisponivel());
-        Double disponivel = memDisponivel / 931322574.615;
+        Double disponivel = ((memDisponivel / 1024) / 1024) / 1024;;
         Double memTotal = Double.valueOf(looca.getMemoria().getTotal());
-        Double total = memTotal / 931322574.615;
+        Double total = ((memTotal / 1024) / 1024) / 1024;;
 
         return """
                             Memoria
-                Uso:                    %.2f Gb
-                Disponivel:             %.2f Gb
-                Total:                  %.2f Gb
+                Uso:                          %.2f Gb
+                Disponivel:                   %.2f Gb
+                Total:                        %.2f Gb
                 """.formatted(emUso, disponivel, total);
     }
 }

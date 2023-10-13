@@ -14,10 +14,10 @@ public class Sistemas {
 
         return """
                     Sistema Operacional
-                Sistema:                %s
-                Fabricante:             %s
-                Arquitetura:            %dBits
-                Permissões Root:        %b
+                Sistema:                      %s
+                Fabricante:                   %s
+                Arquitetura:                  %dBits
+                Permissões Root:              %b
                 """.formatted(sisOper, fabricante, arquiterura, permissoes);
     }
 }

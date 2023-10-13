@@ -14,9 +14,9 @@ public class Processador {
         return """
                                 
                             Processador
-                Fabricante:             %s
-                Modelo:                 %s
-                Uso:                    %.2f%%
+                Fabricante:                   %s
+                Modelo:                       %s
+                Uso:                          %.2f%%
                 """.formatted(fabricante, modelo, uso);
 
     }

@@ -9,15 +9,16 @@ public class Discos {
     public String disco() {
         Looca   looca        = new Looca();
         Integer qtdDiscos    = looca.getGrupoDeDiscos().getQuantidadeDeDiscos();
-        Long    discTamTotal = looca.getGrupoDeDiscos().getTamanhoTotal();
-        Double  tamanhoTotal = discTamTotal / 1073741824.415;
+        Double  discTamTotal = Double.valueOf(looca.getGrupoDeDiscos().getTamanhoTotal());
+
+        Double  tamanhoTotal = ((discTamTotal / 1024) / 1024) / 1024;;
         List<Disco> disc     = looca.getGrupoDeDiscos().getDiscos();
 
         return """
                             Discos
-                Quantidade de Discos:   %d
-                Tamanho Total:          %.2f
-                Discos:                 %s
+                Quantidade de Discos:         %d
+                Total:                        %.2f
+                Discos:                       %s
                 """.formatted(qtdDiscos, tamanhoTotal, disc);
     }
 }
