@@ -5,15 +5,15 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class Memoria {
-    Looca looca = new Looca();
 
     public String memoria() {
+        Looca looca = new Looca();
         Double memEmUso = Double.valueOf(looca.getMemoria().getEmUso());
-        Double emUso = memEmUso / 1000000000;
+        Double emUso = memEmUso / 931322574.615;
         Double memDisponivel = Double.valueOf(looca.getMemoria().getDisponivel());
-        Double disponivel = memDisponivel / 1000000000;
+        Double disponivel = memDisponivel / 931322574.615;
         Double memTotal = Double.valueOf(looca.getMemoria().getTotal());
-        Double total = memTotal / 1000000000;
+        Double total = memTotal / 931322574.615;
 
         return """
                             Memoria
