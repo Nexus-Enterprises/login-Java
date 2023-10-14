@@ -1,7 +1,11 @@
 package Main;
 
+import Discos.Discos;
+
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         Processador processador = new Processador();
         Memoria memoria = new Memoria();
