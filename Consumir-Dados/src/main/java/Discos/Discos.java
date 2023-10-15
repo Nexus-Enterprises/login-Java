@@ -41,20 +41,20 @@ public class Discos {
 
         // Imprime as mensgens juntamente com os dados dos objetos
         String mensagem = """
-                *---------------------------------------------------*
-                                      Discos
-                *---------------------------------------------------*
+                *------------------------------------------------------------*
+                |                            Discos                          |
+                *------------------------------------------------------------*
                 """;
 
         // percorre todo o arquivo e mostra todos os dados salvos
         for (DadosDisco dadosDisco : disk) {
             mensagem += """
-                    Modelo:                                     %s
-                    Montagem:                                   %s
-                    Espaco Total:                               %.2f Gb
-                    Espaco Usado:                               %.2f Gb
-                    Espaco Livre:                               %.2f Gb
-                    *---------------------------------------------------*
+                    | Modelo:                                     %s
+                    | Montagem:                                   %s
+                    | Espaco Total:                               %.2f Gb
+                    | Espaco Usado:                               %.2f Gb
+                    | Espaco Livre:                               %.2f Gb
+                    *------------------------------------------------------------*
                     """.formatted(dadosDisco.nome, dadosDisco.montagem ,dadosDisco.espTotal, dadosDisco.espUsado, dadosDisco.espLivre);
         }
 

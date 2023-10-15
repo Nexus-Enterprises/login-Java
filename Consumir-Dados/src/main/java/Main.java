@@ -12,8 +12,8 @@ public class Main {
         Discos disco = new Discos();
 
         System.out.println(processador.processador());
-        //System.out.println(memoria.memoria());
-        //System.out.println(sistema.sistema());
-     //   System.out.println(disco.disco());
+        System.out.println(memoria.memoria());
+        System.out.println(sistema.sistema());
+        System.out.println(disco.disco());
     }
 }
