@@ -2,50 +2,63 @@ package Discos;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
-import java.io.IOException;
-import java.nio.file.FileStore;
-import java.nio.file.FileSystems;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class Discos {
 
-    int i = 0;
-    int j = 0;
-
-    public String disco() throws IOException {
-        Looca looca = new Looca();
+    public String disco() {
+        // Instancia da funcao de Discos
         DiscoGrupo discoGrupo = new Looca().getGrupoDeDiscos();
 
-        int size =  discoGrupo.getDiscos().size();
+        // define o tamnho da lista do getDisco
+        int size = discoGrupo.getDiscos().size();
+
+        // Cria uma lista com o tamanho do getDisco definido acima
         DadosDisco[] disk = new DadosDisco[size];
 
-        for (int i = 0; i < disk.length; i++){
-            String nome = discoGrupo.getDiscos().get(i).getModelo();
-            String montagem = discoGrupo.getDiscos().get(i).getNome();
+        // um for que percorre todos os discos dentro do discoGrupo
+        for (int i = 0; i < disk.length; i++) {
+
+            // O modelo do disco sera definido aqui
+            String modelo = discoGrupo.getDiscos().get(i).getModelo();
+
+            // Onde o volume esta sendo montado
+            String montagem = discoGrupo.getVolumes().get(i).getPontoDeMontagem();
+
+            // Tamamnho total do disco
             Double discTotal = Double.valueOf(discoGrupo.getDiscos().get(i).getTamanho());
             Double total = ((discTotal / 1024) / 1024) / 1024;
-            Double discUsado = 16384.0;
-            Double usado = ((discUsado / 1024) / 1024) / 1024;
-            Double discLivre = total - usado;
-            disk[i] = new DadosDisco(nome, montagem, total, discLivre, usado);
+
+            // Total disponivel
+            Double vl = Double.valueOf(discoGrupo.getVolumes().get(i).getDisponivel());
+            Double livre = ((vl / 1024) / 1024) / 1024;
+
+            // Quantidadde Usada
+            Double usado = total - livre;
+
+            // Envia todos os dados captados acima para o Arquivo que servira como objeto
+            disk[i] = new DadosDisco(modelo, montagem, total, livre, usado);
         }
 
+        // Imprime as mensgens juntamente com os dados dos objetos
         String mensagem = """
-                        *---------------------------------------------------* 
-                                              Discos
-                        *---------------------------------------------------* 
-                        """;
+                *---------------------------------------------------*
+                                      Discos
+                *---------------------------------------------------*
+                """;
 
+        // percorre todo o arquivo e mostra todos os dados salvos
         for (DadosDisco dadosDisco : disk) {
             mensagem += """
-                    Nome:                                       %s
+                    Modelo:                                     %s
+                    Montagem:                                   %s
                     Espaco Total:                               %.2f Gb
                     Espaco Usado:                               %.2f Gb
                     Espaco Livre:                               %.2f Gb
-                    *---------------------------------------------------*                 
-                    """.formatted(dadosDisco.nome, dadosDisco.espTotal, dadosDisco.espUsado, dadosDisco.espLivre);
+                    *---------------------------------------------------*
+                    """.formatted(dadosDisco.nome, dadosDisco.montagem ,dadosDisco.espTotal, dadosDisco.espUsado, dadosDisco.espLivre);
         }
+
+        // retorna a String formatada para o MAIN
         return mensagem;
     }
 }

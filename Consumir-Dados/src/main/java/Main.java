@@ -1,11 +1,10 @@
-package Main;
-
 import Discos.Discos;
-
-import java.io.IOException;
+import Memoria.Memoria;
+import Processador.Processador;
+import Sistemas.Sistemas;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
         Processador processador = new Processador();
         Memoria memoria = new Memoria();
@@ -13,8 +12,8 @@ public class Main {
         Discos disco = new Discos();
 
         System.out.println(processador.processador());
-        System.out.println(memoria.memoria());
-        System.out.println(sistema.sistema());
-        System.out.println(disco.disco());
+        //System.out.println(memoria.memoria());
+        //System.out.println(sistema.sistema());
+     //   System.out.println(disco.disco());
     }
 }

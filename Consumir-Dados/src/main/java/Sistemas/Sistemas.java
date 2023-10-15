@@ -1,7 +1,6 @@
-package Main;
+package Sistemas;
 
 import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.temperatura.Temperatura;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;

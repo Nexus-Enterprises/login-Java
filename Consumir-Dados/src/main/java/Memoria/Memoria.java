@@ -1,4 +1,4 @@
-package Main;
+package Memoria;
 
 import com.github.britooo.looca.api.core.Looca;
 

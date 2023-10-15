@@ -1,8 +1,5 @@
 package Discos;
 
-import java.io.IOException;
-import java.nio.file.Path;
-
 public class DadosDisco {
     String nome;
     String montagem;
