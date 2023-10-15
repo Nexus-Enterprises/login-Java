@@ -12,7 +12,7 @@ public class Processador {
 
         //
         String nomeCpu = processador.getProcessorIdentifier().getName();
-        nomeCpu = nomeCpu.replaceAll("R|CPU|TM|Gen|U9400|@|1.40GHz", "").replace("(","").replace(")","");
+        nomeCpu = nomeCpu.replaceAll("R|CPU|TM|Gen|U9400|8265U|1.60GHz|-|@|1.40GHz", "").replace("(","").replace(")","");
 
 
         Double freq = Double.valueOf(processador.getMaxFreq());
