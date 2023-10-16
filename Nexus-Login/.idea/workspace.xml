@@ -3,13 +3,35 @@
   <component name="AnalysisUIOptions">
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5294e9ac-8413-4ea4-91c5-19f676f25cb7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/Consumir-Dados.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/Consumir-Dados.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/src/main/java/Discos/DadosDisco.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/src/main/java/Discos/DadosDisco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/src/main/java/Discos/Discos.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/src/main/java/Discos/Discos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Discos/DadosDisco.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Discos/DadosDisco.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Discos/Discos.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Discos/Discos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Memoria/Memoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Memoria/Memoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Processador/Processador.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Processador/Processador.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Sistemas/Sistemas.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Consumir-Dados/target/classes/Sistemas/Sistemas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/mike.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/mike.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/nexus/Prints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/nexus/Prints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nexus/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nexus/Login.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nexus/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nexus/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nexus/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nexus/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/nexus/Prints.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/nexus/Prints.class" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/out/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,47 +42,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Menu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/nexus/Prints.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="54" selection-start-line="54" selection-end-line="54" />
-              <folding>
-                <element signature="e#1506#1507#0" expanded="true" />
-                <element signature="e#1574#1575#0" expanded="true" />
-                <element signature="method#afterLogin#0;class#Prints#0" />
-                <element signature="method#dayError#0;class#Prints#0" />
-                <element signature="method#anoError#0;class#Prints#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -87,17 +68,11 @@
       </list>
     </option>
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1366" />
     <option name="height" value="768" />
   </component>
+  <component name="ProjectId" id="2WpBo9LDqRsBz73w3K7J0rOiBWP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
@@ -147,6 +122,10 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -158,18 +137,6 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -191,6 +158,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -260,125 +228,42 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="51" />
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.sql.SQLException" package="java.sql" />
+          <option name="timeStamp" value="73" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/nexus/Cadastrar.java</url>
+          <line>34</line>
+          <properties class="nexus.Cadastrar" method="realizarCadastro">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>57</line>
-          <properties />
-          <option name="timeStamp" value="52" />
+          <url>file://$PROJECT_DIR$/src/main/java/nexus/Cadastrar.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>58</line>
-          <properties />
-          <option name="timeStamp" value="53" />
+          <url>file://$PROJECT_DIR$/src/main/java/nexus/Cadastrar.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>59</line>
-          <properties />
-          <option name="timeStamp" value="54" />
+          <url>file://$PROJECT_DIR$/src/main/java/nexus/Cadastrar.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>60</line>
-          <properties />
-          <option name="timeStamp" value="55" />
+          <url>file://$PROJECT_DIR$/src/main/java/nexus/Cadastrar.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="78" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>61</line>
-          <properties />
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>62</line>
-          <properties />
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>63</line>
-          <properties />
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>64</line>
-          <properties />
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>65</line>
-          <properties />
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>47</line>
-          <properties />
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>51</line>
-          <properties />
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>52</line>
-          <properties />
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="67" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>54</line>
-          <properties />
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>66</line>
-          <properties />
-          <option name="timeStamp" value="69" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>68</line>
-          <properties />
-          <option name="timeStamp" value="70" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/nexus/Menu.java</url>
-          <line>48</line>
-          <properties />
-          <option name="timeStamp" value="71" />
+          <url>file://$PROJECT_DIR$/src/main/java/nexus/Cadastrar.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -4,7 +4,7 @@ import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 
 public class Discos {
-
+    int fkMaquina;
     public String disco() {
         // Instancia da funcao de Discos
         DiscoGrupo discoGrupo = new Looca().getGrupoDeDiscos();
@@ -55,9 +55,15 @@ public class Discos {
                     | Espaco Usado:                               %.2f Gb
                     | Espaco Livre:                               %.2f Gb
                     *------------------------------------------------------------*
-                    """.formatted(dadosDisco.nome, dadosDisco.montagem ,dadosDisco.espTotal, dadosDisco.espUsado, dadosDisco.espLivre);
-        }
+                    """.formatted(dadosDisco.nome, dadosDisco.montagem, dadosDisco.espTotal, dadosDisco.espUsado, dadosDisco.espLivre);
 
+            double porcet = (dadosDisco.espUsado / dadosDisco.espTotal) * 100;
+            if ( porcet >=70 || porcet <80){
+
+            } else if ( porcet >= 80 || porcet < 90){
+
+            }
+        }
         // retorna a String formatada para o MAIN
         return mensagem;
     }

@@ -14,16 +14,13 @@ public class Prints {
         System.out.println("----------------------------------------------");
     }
     static void username() {
-        System.out.println("\nInsira seu Username: ");
+        System.out.println("\nInsira seu email: ");
     }
     static void password() {
-        System.out.println("\nInsira sua senha: ");
+        System.out.println("\nInsira sua token: ");
     }
     static void token() {
         System.out.println("\nInsira seu token:");
-    }
-    static void erroPass() {
-        System.out.println("\nA senha está incorreta");
     }
     static void erroUser() {
         System.out.println("\nO usuario está incorreto");
@@ -37,32 +34,16 @@ public class Prints {
     static void sair() {
         System.out.println("\nSessão Finalizada!");
     }
-    static void day() {
-        System.out.println("\nInsira o Dia em que nasceu: ");
-    }
-    static void month() {
-        System.out.println("\nEscreva o Mês em que nasceu: ");
-    }
-    static void year() {
-        System.out.println("\nInsira o Ano em que nasceu: ");
-    }
+
     static void user() {
-        System.out.println("\nInsira seu user: ");
+        System.out.println("\nInsira seu email: ");
     }
     static void pass() {
-        System.out.println("\nInsira sua senha: ");
+        System.out.println("\nInsira seu token: ");
     }
     static void afterLogin(){
         System.out.println("----------------------------------------------");
 
-    }
-    static void dayError(){
-        System.out.println("O dia inserido está incorreto!!");
-        System.out.println("Por favor insira um dia válido");
-    }
-    static void anoError(){
-        System.out.println("O Ano inserido está incorreto!!");
-        System.out.println("Por favor insira um ano válido");
     }
 }
 // Realizado Pela Nexus Enterprises :)
