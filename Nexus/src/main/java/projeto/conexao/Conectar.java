@@ -9,7 +9,7 @@ public class Conectar {
 
     private String url = "jdbc:mysql://localhost:3306/NEXUS";
     private String user = "root";
-    private String passwd = "01032002";
+    private String passwd = "nexus123";
 
     private Menu menu = new Menu();
 
