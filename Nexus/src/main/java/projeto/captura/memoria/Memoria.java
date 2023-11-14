@@ -2,6 +2,7 @@ package projeto.captura.memoria;
 
 import com.github.britooo.looca.api.core.Looca;
 import projeto.conexao.Conectar;
+import projeto.Logs;
 
 public class Memoria {
     public String memoria() {
@@ -22,6 +23,10 @@ public class Memoria {
 
         Conectar conectar = new Conectar();
 
+        Logs logs = new Logs();
+
+        logs.gravar("Memoria Utilizada %s".formatted(emUso.toString()));
+
         conectar.inserirMemoria(total);
         // retorna a mensgem para ser impressa na Main
         return """
@@ -32,5 +37,8 @@ public class Memoria {
                 | Disponivel:                                %.2f Gb
                 | Total:                                     %.2f Gb
                 """.formatted(emUso, disponivel, total);
+
+
     }
+
 }

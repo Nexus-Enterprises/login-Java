@@ -2,15 +2,17 @@ package projeto.conexao;
 
 import projeto.captura.Monitoramento;
 import projeto.menu.Menu;
-
+import projeto.Logs;
 import java.sql.*;
 
 public class Conectar {
+
 
     private String url = "jdbc:mysql://localhost:3306/NEXUS";
     private String user = "root";
     private String passwd = "nexus123";
 
+    private Logs informacoes = new Logs();
     private Menu menu = new Menu();
 
     private String email;
@@ -23,6 +25,7 @@ public class Conectar {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
+
             Connection conexao = DriverManager.getConnection(url, user, passwd);
 
             Statement statement = conexao.createStatement();

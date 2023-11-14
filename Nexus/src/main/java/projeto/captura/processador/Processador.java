@@ -4,6 +4,7 @@ import com.github.britooo.looca.api.core.Looca;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import projeto.conexao.Conectar;
+import projeto.Logs;
 
 public class Processador {
     public String processador() {
@@ -49,6 +50,10 @@ public class Processador {
                 %s %s
                 """.formatted(brand, model);
         conectar.inserirProcessador(nameBD);
+
+        Logs logs = new Logs();
+
+        logs.gravar("CPU Utilizada %s".formatted(usage.toString()));
 
         return """
                 *------------------------------------------------------------*
