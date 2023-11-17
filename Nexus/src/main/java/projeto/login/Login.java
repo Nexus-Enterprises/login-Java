@@ -7,7 +7,7 @@ import projeto.print.Prints;
 import java.util.Scanner;
 
 public class Login {
-    private String username;
+    String username;
     private String token;
     private Boolean logado = false;
 
@@ -16,14 +16,35 @@ public class Login {
     Scanner scanner = new Scanner(System.in);
     Prints prints = new Prints();
     public Boolean login() {
+        Integer n = 0;
         while (!logado) {
-            prints.username();
-            username = scanner.nextLine();
-            prints.token();
-            token = scanner.nextLine();
+            if (logado == false) {
+                if (n == 0) {
+                    prints.username();
+                    username = scanner.nextLine();
+                    prints.token();
+                    token = scanner.nextLine();
 
-            logado = conectar.Logar(username, token);
+                    logado = conectar.Logar(username, token);
+                    n++;
+                } else {
+                    System.out.println("""
+                                        
+                    Nenhum usuario encontrado
+                                        
+                    Por favor verifique as credenciais
+                    """);
+                    prints.username();
+                    username = scanner.nextLine();
+                    prints.token();
+                    token = scanner.nextLine();
+
+                    logado = conectar.Logar(username, token);
+                }
+            }
         }
         return true;
     }
+
+
 }

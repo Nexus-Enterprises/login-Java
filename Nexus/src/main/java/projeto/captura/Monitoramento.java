@@ -11,16 +11,19 @@ import java.util.TimerTask;
 
 public class Monitoramento {
     private Boolean sair = false;
+    static String email;
     Discos disk = new Discos();
     Memoria memory = new Memoria();
     Processador processor = new Processador();
 
-    public void monitor() {
+    public void monitor(String email) {
+
+        this.email = email;
 
         Prints prints = new Prints();
 
 
-        Timer timer = new Timer();
+        Timer timer = new Timer(this.email);
         TimerTask main = new Execution();
         timer.schedule(main, 0, 15000);
 
@@ -32,13 +35,13 @@ public class Monitoramento {
             int opcao = scanner.nextInt();
             switch (opcao) {
                 case 1:
-                    System.out.println(processor.processador());
+                    System.out.println(processor.processador(email));
                     break;
                 case 2:
-                    System.out.println(memory.memoria());
+                    System.out.println(memory.memoria(email));
                     break;
                 case 3:
-                    System.out.println(disk.disco());
+                    System.out.println(disk.disco(email));
                     break;
                 case 0:
                     prints.sair();
@@ -52,15 +55,17 @@ public class Monitoramento {
     }
 
     public static class Execution extends TimerTask {
+        String user = email;
+
         public void run() {
             Discos disk = new Discos();
-            disk.disco();
+            disk.disco(this.user);
 
             Memoria memory = new Memoria();
-            memory.memoria();
+            memory.memoria(this.user);
 
             Processador processor = new Processador();
-            processor.processador();
+            processor.processador(this.user);
         }
     }
 }
