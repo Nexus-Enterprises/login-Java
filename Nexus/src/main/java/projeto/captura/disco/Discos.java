@@ -4,9 +4,6 @@ import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import projeto.Logs;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-
 public class Discos {
     private String modelo;
     private Double capMax;
@@ -22,6 +19,7 @@ public class Discos {
         // Instancia da funcao de Discos
         DiscoGrupo discoGrupo = new Looca().getGrupoDeDiscos();
         Looca looca = new Looca();
+        Logs logs = new Logs();
 
         // define o tamnho da lista do getDisco
         int size = discoGrupo.getDiscos().size();
@@ -58,19 +56,14 @@ public class Discos {
                 fkAlerta = 10;
             } else if (porcentage > 50 && porcentage <= 75) {
                 fkAlerta = 7;
+                logs.gravar("ALERTA - Disco Utilizado %s%".formatted(porcentage.toString()));
             } else if (porcentage > 75 && porcentage <= 90) {
                 fkAlerta = 8;
-                Logs logs = new Logs();
-                logs.gravar("ALERT - Disco Utilizado %s%".formatted(porcentage.toString()));
+                logs.gravar("ALERTA - Disco Utilizado %s%".formatted(porcentage.toString()));
             } else {
                 fkAlerta = 9;
-                Logs logs = new Logs();
-                logs.gravar("ALERT - Disco Utilizado %s%".formatted(porcentage.toString()));
+                logs.gravar("ALERTA - Disco Utilizado %s%".formatted(porcentage.toString()));
             }
-
-            Logs logs = new Logs();
-
-            logs.gravar("Disco Utilizado %s%".formatted(porcentage.toString()));
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto
             disk[0] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);

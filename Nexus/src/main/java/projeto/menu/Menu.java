@@ -1,6 +1,5 @@
 package projeto.menu;
 
-import projeto.cadastro.Cadastro;
 import projeto.login.Login;
 import projeto.print.Prints;
 
@@ -11,7 +10,6 @@ public class Menu {
 
     public void exibirMenu() {
         Login login = new Login();
-        Cadastro cadastro = new Cadastro();
         Prints prints = new Prints();
         Scanner scanner = new Scanner(System.in);
 
@@ -22,9 +20,6 @@ public class Menu {
             switch (opcao) {
                 case 1:
                     sair = login.login();
-                    break;
-                case 2:
-                    cadastro.cadastrar();
                     break;
                 case 0:
                     prints.sair();

@@ -4,7 +4,7 @@ import com.github.britooo.looca.api.core.Looca;
 import projeto.conexao.Conectar;
 import projeto.Logs;
 import java.text.DecimalFormat;
-import java.lang.Math;
+
 public class Memoria {
     public String memoria(String email) {
         String montagem = null;
@@ -13,6 +13,8 @@ public class Memoria {
 
         // Cria a instacia da API Looca
         Looca looca = new Looca();
+        Logs logs = new Logs();
+
         // pega a quantidade de memoria em uso e faz o calculo para Gb
         Double memEmUso = Double.valueOf(looca.getMemoria().getEmUso());
         Double usoAtual = ((memEmUso / 1024) / 1024) / 1024;
@@ -33,24 +35,20 @@ public class Memoria {
             fkAlerta = 10;
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 4;
+            logs.gravar("ALERTA - Memoria Utilizada %s%".formatted(porcentage.toString()));
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 5;
-            Logs logs = new Logs();
-            logs.gravar("ALERT - Memoria Utilizada %s%".formatted(porcentage.toString()));
+            logs.gravar("ALERTA - Memoria Utilizada %s%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 6;
-            Logs logs = new Logs();
-            logs.gravar("ALERT - Memoria Utilizada %s%".formatted(porcentage.toString()));
+            logs.gravar("ALERTA - Memoria Utilizada %s%".formatted(porcentage.toString()));
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
 
         Conectar conectar = new Conectar();
 
-        Logs logs = new Logs();
-
-        logs.gravar("Memoria Utilizada %s%".formatted(porcentage.toString()));
-
         conectar.inserirMemoria(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+
         // retorna a mensgem para ser impressa na Main
         return """
                 *------------------------------------------------------------*

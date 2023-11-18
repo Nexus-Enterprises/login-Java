@@ -28,13 +28,6 @@ public class DadosDisco {
         Double livre = capMax - usoAtual;
 
         Conectar conectar = new Conectar();
-        conectar.DadosDisco(this.modelo, this.capMax, this.usoAtual,
-                this.montagem, this.endIPV4, this.fkAlerta, this.fkComponente
-                , this.email);
-
-        Logs logs = new Logs();
-
-        // gravando no log espaco usado disco e espaco livre
-        logs.gravar( "Espaço Usado Disco" + usoAtual.toString() + "Espaço Livre Disco:" + livre.toString());
+        conectar.DadosDisco(this.modelo, this.capMax, this.usoAtual, this.montagem, this.endIPV4, this.fkAlerta, this.fkComponente, this.email);
     }
 }

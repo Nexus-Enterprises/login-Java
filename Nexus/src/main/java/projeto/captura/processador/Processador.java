@@ -8,9 +8,11 @@ import projeto.Logs;
 
 public class Processador {
     public String processador(String email) {
+        
         // Cria uma instacia para puxar dados do processador
         CentralProcessor processador = new SystemInfo().getHardware().getProcessor();
         Conectar conectar = new Conectar();
+        Logs logs = new Logs();
 
         // Criacao das variaveis
         String name = "";
@@ -56,26 +58,17 @@ public class Processador {
             fkAlerta = 10;
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 1;
+            logs.gravar("ALERT - CPU Utilizado %s%".formatted(porcentage.toString()));
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 2;
-            Logs logs = new Logs();
             logs.gravar("ALERT - CPU Utilizado %s%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 3;
-            Logs logs = new Logs();
             logs.gravar("ALERT - CPU Utilizado %s%".formatted(porcentage.toString()));
         }
-
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
-        String nameBD = """
-                %s %s
-                """.formatted(brand, modelo);
+        
         conectar.inserirProcessador(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
-
-        Logs logs = new Logs();
-
-        logs.gravar("CPU Utilizada %s".formatted(porcentage.toString()));
-
 
         return """
                 *------------------------------------------------------------*
