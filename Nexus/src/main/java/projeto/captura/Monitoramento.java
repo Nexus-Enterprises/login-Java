@@ -1,5 +1,6 @@
 package projeto.captura;
 
+import projeto.BotSlack;
 import projeto.captura.disco.Discos;
 import projeto.captura.memoria.Memoria;
 import projeto.captura.processador.Processador;
@@ -14,6 +15,8 @@ public class Monitoramento {
     Discos disk = new Discos();
     Memoria memory = new Memoria();
     Processador processor = new Processador();
+
+    BotSlack botSlack = new BotSlack();
 
     public void monitor() {
 

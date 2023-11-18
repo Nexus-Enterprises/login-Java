@@ -2,6 +2,7 @@ package projeto.captura.disco;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import projeto.BotSlack;
 
 public class Discos {
     private Integer fkmaquina;
