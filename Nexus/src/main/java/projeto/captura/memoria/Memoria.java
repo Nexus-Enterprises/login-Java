@@ -35,8 +35,12 @@ public class Memoria {
             fkAlerta = 4;
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 5;
+            Logs logs = new Logs();
+            logs.gravar("ALERT - Memoria Utilizada %s%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 6;
+            Logs logs = new Logs();
+            logs.gravar("ALERT - Memoria Utilizada %s%".formatted(porcentage.toString()));
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
 

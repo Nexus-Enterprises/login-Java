@@ -2,6 +2,7 @@ package projeto.captura.disco;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import projeto.Logs;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -59,9 +60,17 @@ public class Discos {
                 fkAlerta = 7;
             } else if (porcentage > 75 && porcentage <= 90) {
                 fkAlerta = 8;
+                Logs logs = new Logs();
+                logs.gravar("ALERT - Disco Utilizado %s%".formatted(porcentage.toString()));
             } else {
                 fkAlerta = 9;
+                Logs logs = new Logs();
+                logs.gravar("ALERT - Disco Utilizado %s%".formatted(porcentage.toString()));
             }
+
+            Logs logs = new Logs();
+
+            logs.gravar("Disco Utilizado %s%".formatted(porcentage.toString()));
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto
             disk[0] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);

@@ -58,9 +58,14 @@ public class Processador {
             fkAlerta = 1;
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 2;
+            Logs logs = new Logs();
+            logs.gravar("ALERT - CPU Utilizado %s%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 3;
+            Logs logs = new Logs();
+            logs.gravar("ALERT - CPU Utilizado %s%".formatted(porcentage.toString()));
         }
+
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
         String nameBD = """
                 %s %s
@@ -69,7 +74,8 @@ public class Processador {
 
         Logs logs = new Logs();
 
-        logs.gravar("CPU Utilizada %s".formatted(usoAtual.toString()));
+        logs.gravar("CPU Utilizada %s".formatted(porcentage.toString()));
+
 
         return """
                 *------------------------------------------------------------*
