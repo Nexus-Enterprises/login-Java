@@ -3,6 +3,8 @@ package projeto.captura.memoria;
 import com.github.britooo.looca.api.core.Looca;
 import projeto.conexao.Conectar;
 import projeto.Logs;
+
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 public class Memoria {
@@ -15,33 +17,38 @@ public class Memoria {
         Looca looca = new Looca();
         Logs logs = new Logs();
 
+        DecimalFormat df = new DecimalFormat("0.00");
+        df.setRoundingMode(RoundingMode.HALF_UP);
+
         // pega a quantidade de memoria em uso e faz o calculo para Gb
         Double memEmUso = Double.valueOf(looca.getMemoria().getEmUso());
-        Double usoAtual = ((memEmUso / 1024) / 1024) / 1024;
+        Double usoAtual = Double.valueOf(df.format(((memEmUso / 1024) / 1024) / 1024).replace(",","."));
+
         // pega a quantidade de memoria disponivel e faz o calculo para Gb
         Double memDisponivel = Double.valueOf(looca.getMemoria().getDisponivel());
         Double disponivel = ((memDisponivel / 1024) / 1024) / 1024;
 
         // pega a quantidade de memoria total e faz o calculo para Gb
         Double memTotal = Double.valueOf(looca.getMemoria().getTotal());
-        Double capMax = ((memTotal / 1024) / 1024) / 1024;
+        Double capMax = Double.valueOf(df.format(((memTotal / 1024) / 1024) / 1024).replace(",","."));
 
         String modelo = """
-                RAM %.2f
-                """.formatted(capMax);
+                RAM %.2fGb""".formatted(capMax);
 
-        Double porcentage = (usoAtual * 100) / capMax;
+
+        Double porcentage = Double.valueOf(df.format((usoAtual * 100) / capMax).replace(",","."));
+
         if (porcentage <= 50) {
             fkAlerta = 10;
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 4;
-            logs.gravar("ALERTA - Memoria Utilizada %s%".formatted(porcentage.toString()));
+            logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 5;
-            logs.gravar("ALERTA - Memoria Utilizada %s%".formatted(porcentage.toString()));
+            logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 6;
-            logs.gravar("ALERTA - Memoria Utilizada %s%".formatted(porcentage.toString()));
+            logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage));
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
 

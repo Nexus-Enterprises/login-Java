@@ -10,7 +10,9 @@ public class Logs {
     private LocalDateTime dataAtual = LocalDateTime.now();
 
     // Criando um arquivo dentro dessa pasta
-    private File file = new File(".\\Nexus\\src\\main\\log\\%d-%s-%d.txt".formatted(dataAtual.getYear(), dataAtual.getMonth(), dataAtual.getDayOfMonth()));
+    private File file =
+            new File("Log - %d-%s-%d.txt".formatted(dataAtual.getYear(),
+                    dataAtual.getMonth(), dataAtual.getDayOfMonth()));
 
     public void gravar(String info){
     // verificacao se o arquivo ja existe
@@ -21,7 +23,6 @@ public class Logs {
             try {
                 file.createNewFile();
                 escreverArquivo(info);
-                System.out.println("Texto inserido no arquivo com sucesso.");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -38,12 +39,4 @@ public class Logs {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        Logs teste = new Logs();
-        teste.gravar("oiii");
-
-    }
-
-
 }

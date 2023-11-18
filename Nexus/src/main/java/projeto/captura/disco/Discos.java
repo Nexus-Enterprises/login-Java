@@ -4,6 +4,9 @@ import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import projeto.Logs;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 public class Discos {
     private String modelo;
     private Double capMax;
@@ -19,7 +22,11 @@ public class Discos {
         // Instancia da funcao de Discos
         DiscoGrupo discoGrupo = new Looca().getGrupoDeDiscos();
         Looca looca = new Looca();
+
         Logs logs = new Logs();
+
+        DecimalFormat df = new DecimalFormat("0.00");
+        df.setRoundingMode(RoundingMode.HALF_UP);
 
         // define o tamnho da lista do getDisco
         int size = discoGrupo.getDiscos().size();
@@ -48,21 +55,25 @@ public class Discos {
             Double livre = ((vl / 1024) / 1024) / 1024;
 
             // Quantidadde Usada
-            usoAtual = capMax - livre;
+            usoAtual = Double.valueOf(df.format((capMax - livre)).replace(",", "."));
+
+            System.out.println("disco michael.h.silva@bradesco.com.br\n" + usoAtual);
 
             endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
+
             Double porcentage = (usoAtual * 100) / capMax;
+
             if (porcentage <= 50) {
                 fkAlerta = 10;
             } else if (porcentage > 50 && porcentage <= 75) {
                 fkAlerta = 7;
-                logs.gravar("ALERTA - Disco Utilizado %s%".formatted(porcentage.toString()));
+                logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
             } else if (porcentage > 75 && porcentage <= 90) {
                 fkAlerta = 8;
-                logs.gravar("ALERTA - Disco Utilizado %s%".formatted(porcentage.toString()));
+                logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
             } else {
                 fkAlerta = 9;
-                logs.gravar("ALERTA - Disco Utilizado %s%".formatted(porcentage.toString()));
+                logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
             }
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto
