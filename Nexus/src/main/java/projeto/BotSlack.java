@@ -1,28 +1,46 @@
 package projeto;
 
-import com.github.britooo.looca.api.core.Looca;
-import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import org.json.JSONObject;
 import projeto.captura.disco.Discos;
+import projeto.captura.memoria.Memoria;
+import projeto.captura.processador.Processador;
 
 import java.io.IOException;
 
 public class BotSlack {
     // Pegar do Monitoramento as informações dos componente e puxar como parametro para enviar ao slack
 
-    public static void mensagemHardware(String componenete) throws IOException, InterruptedException {
-        // Enviar mensagem para o slack filtrando o componente
+    public void mensagemDisco(String mensagem) {
 
         JSONObject json = new JSONObject();
-
-        if(componenete.equals("CPU")){
-            json.put("text", "O processador está com uso acima do limite");
-        } else if(componenete.equals("RAM")){
-            json.put("text", "A memória está com uso acima do limite");
-        } else if(componenete.equals("DISCO")){
-            json.put("text", "O disco está com uso acima do limite");
+        json.put("text", mensagem);
+        try {
+            Slack.sendMessage(json);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
-
-        Slack.sendMessage(json);
     }
+
+    public void mensagemProcessador(String mensagem) {
+
+        JSONObject json = new JSONObject();
+        json.put("text", mensagem);
+        try {
+            Slack.sendMessage(json);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void mensagemMemoria(String mensagem) {
+
+        JSONObject json = new JSONObject();
+        json.put("text", mensagem);
+        try {
+            Slack.sendMessage(json);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

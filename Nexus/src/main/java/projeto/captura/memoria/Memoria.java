@@ -1,6 +1,7 @@
 package projeto.captura.memoria;
 
 import com.github.britooo.looca.api.core.Looca;
+import projeto.BotSlack;
 import projeto.conexao.Conectar;
 import projeto.Logs;
 
@@ -16,6 +17,7 @@ public class Memoria {
         // Cria a instacia da API Looca
         Looca looca = new Looca();
         Logs logs = new Logs();
+        BotSlack botSlack = new BotSlack();
 
         DecimalFormat df = new DecimalFormat("0.00");
         df.setRoundingMode(RoundingMode.HALF_UP);
@@ -43,12 +45,15 @@ public class Memoria {
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 4;
             logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 5;
             logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 6;
             logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage));
+            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
 

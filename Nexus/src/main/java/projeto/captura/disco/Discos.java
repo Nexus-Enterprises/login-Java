@@ -2,6 +2,7 @@ package projeto.captura.disco;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
+import projeto.BotSlack;
 import projeto.Logs;
 
 import java.math.RoundingMode;
@@ -24,6 +25,7 @@ public class Discos {
         Looca looca = new Looca();
 
         Logs logs = new Logs();
+        BotSlack botSlack = new BotSlack();
 
         DecimalFormat df = new DecimalFormat("0.00");
         df.setRoundingMode(RoundingMode.HALF_UP);
@@ -68,12 +70,15 @@ public class Discos {
             } else if (porcentage > 50 && porcentage <= 75) {
                 fkAlerta = 7;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage.toString()));
             } else if (porcentage > 75 && porcentage <= 90) {
                 fkAlerta = 8;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage.toString()));
             } else {
                 fkAlerta = 9;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage.toString()));
             }
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto

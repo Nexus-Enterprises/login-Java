@@ -3,6 +3,7 @@ package projeto.captura.processador;
 import com.github.britooo.looca.api.core.Looca;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
+import projeto.BotSlack;
 import projeto.conexao.Conectar;
 import projeto.Logs;
 
@@ -18,6 +19,7 @@ public class Processador {
         CentralProcessor processador = new SystemInfo().getHardware().getProcessor();
         Conectar conectar = new Conectar();
         Logs logs = new Logs();
+        BotSlack botSlack = new BotSlack();
 
         DecimalFormat df = new DecimalFormat("0.00");
         df.setRoundingMode(RoundingMode.HALF_UP);
@@ -66,12 +68,15 @@ public class Processador {
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 1;
             logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
+            botSlack.mensagemProcessador("\n SLACK ALERTA - CPU Utilizada %s%%".formatted(porcentage.toString()));
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 2;
             logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
+            botSlack.mensagemProcessador("\n SLACK ALERTA - CPU Utilizada %s%%".formatted(porcentage.toString()));
         } else {
             fkAlerta = 3;
             logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
+            botSlack.mensagemProcessador("\n SLACK ALERTA - CPU Utilizada %s%%".formatted(porcentage.toString()));
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
         
