@@ -59,8 +59,6 @@ public class Discos {
             // Quantidadde Usada
             usoAtual = Double.valueOf(df.format((capMax - livre)).replace(",", "."));
 
-            System.out.println("disco michael.h.silva@bradesco.com.br\n" + usoAtual);
-
             endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
 
             Double porcentage = (usoAtual * 100) / capMax;
@@ -70,15 +68,15 @@ public class Discos {
             } else if (porcentage > 50 && porcentage <= 75) {
                 fkAlerta = 7;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage.toString()));
+                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
             } else if (porcentage > 75 && porcentage <= 90) {
                 fkAlerta = 8;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage.toString()));
+                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
             } else {
                 fkAlerta = 9;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage.toString()));
+                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
             }
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto

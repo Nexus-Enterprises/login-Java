@@ -45,15 +45,15 @@ public class Memoria {
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 4;
             logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
-            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage));
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 5;
             logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
-            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage));
         } else {
             fkAlerta = 6;
             logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage));
-            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            botSlack.mensagemMemoria("\n SLACK ALERTA - Memoria Utilizada %s%%".formatted(porcentage));
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
 
