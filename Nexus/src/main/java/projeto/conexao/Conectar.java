@@ -11,7 +11,9 @@ public class Conectar {
     private String url = "jdbc:mysql://localhost:3306/NEXUS";
     private String user = "root";
     private String passwd = "01032002";
-
+    private String urlAWS = "jdbc:sqlserver://ec2-34-194-243-14.compute-1.amazonaws.com:1433;databaseName=NEXUS";
+    private String userAWS = "sa";
+    private String passAWS = "nexus123";
     private Logs informacoes = new Logs();
     private Menu menu = new Menu();
 
@@ -27,8 +29,10 @@ public class Conectar {
             Class.forName("com.mysql.jdbc.Driver");
 
             Connection conexao = DriverManager.getConnection(url, user, passwd);
+            Connection conexaoAWS = DriverManager.getConnection(urlAWS, userAWS, passAWS);
 
             Statement statement = conexao.createStatement();
+            Statement statementAWS = conexaoAWS.createStatement();
 
             String sqlSelect = "SELECT emailCorporativo, token FROM Funcionario;";
 
@@ -40,6 +44,12 @@ public class Conectar {
                 Monitoramento monitoramento = new Monitoramento();
 
                 if (this.email.equals(username) && this.pass.equals(token)) {
+                    ResultSet respostaAWS = statementAWS.executeQuery(sqlSelect);
+                    while (respostaAWS.next()) {
+                        String userAWS = respostaAWS.getString(
+                                "emailCorporativo");
+                    }
+
                     logado = true;
                     System.out.println("""
                             Login Realizado com Sucesso!

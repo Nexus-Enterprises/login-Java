@@ -18,7 +18,5 @@ public class Slack{
                  .POST(HttpRequest.BodyPublishers.ofString(json.toString()))
                  .build();
           HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-          System.out.println(response.statusCode());
-          System.out.println(response.body());
     }
 }
