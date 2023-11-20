@@ -68,15 +68,18 @@ public class Discos {
             } else if (porcentage > 50 && porcentage <= 75) {
                 fkAlerta = 7;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+
+                botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
             } else if (porcentage > 75 && porcentage <= 90) {
                 fkAlerta = 8;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+
+                botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
             } else {
                 fkAlerta = 9;
                 logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-                botSlack.mensagemDisco("\n SLACK ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+
+                botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
             }
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto
