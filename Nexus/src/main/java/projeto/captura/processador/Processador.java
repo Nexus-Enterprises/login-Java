@@ -68,15 +68,18 @@ public class Processador {
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 1;
             logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
-            botSlack.mensagemProcessador("\n SLACK ALERTA - CPU Utilizada %s%%".formatted(porcentage));
+
+            botSlack.notificarUsoCPUPorcentagem("CPU", porcentage);
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 2;
             logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
-            botSlack.mensagemProcessador("\n SLACK ALERTA - CPU Utilizada %s%%".formatted(porcentage));
+
+            botSlack.notificarUsoCPUPorcentagem("CPU", porcentage);
         } else {
             fkAlerta = 3;
             logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
-            botSlack.mensagemProcessador("\n SLACK ALERTA - CPU Utilizada %s%%".formatted(porcentage));
+
+            botSlack.notificarUsoCPUPorcentagem("CPU", porcentage);
         }
         String endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
         
