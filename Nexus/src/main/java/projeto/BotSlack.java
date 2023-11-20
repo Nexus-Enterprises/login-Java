@@ -1,9 +1,6 @@
 package projeto;
 
 import org.json.JSONObject;
-import projeto.captura.disco.Discos;
-import projeto.captura.memoria.Memoria;
-import projeto.captura.processador.Processador;
 
 import java.io.IOException;
 
