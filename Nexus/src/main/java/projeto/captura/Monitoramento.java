@@ -1,5 +1,6 @@
 package projeto.captura;
 
+import projeto.captura.PrimeiroPlano.PrimeiroPlano;
 import projeto.captura.disco.Discos;
 import projeto.captura.memoria.Memoria;
 import projeto.captura.processador.Processador;
@@ -15,6 +16,7 @@ public class Monitoramento {
     Discos disk = new Discos();
     Memoria memory = new Memoria();
     Processador processor = new Processador();
+    PrimeiroPlano primeiroPlano = new PrimeiroPlano();
 
     public void monitor(String email) {
 
@@ -43,6 +45,9 @@ public class Monitoramento {
                 case 3:
                     System.out.println(disk.disco(email));
                     break;
+                case 4:
+                    System.out.println(primeiroPlano.dadosPrimeiro(email));
+                    break;
                 case 0:
                     prints.sair();
                     sair = true;
@@ -66,6 +71,9 @@ public class Monitoramento {
 
             Processador processor = new Processador();
             processor.processador(this.user);
+
+            PrimeiroPlano firstTask = new PrimeiroPlano();
+            firstTask.dadosPrimeiro(this.user);
         }
     }
 }

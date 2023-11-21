@@ -34,6 +34,7 @@ public class Prints {
                 | 1 - Processador                       |
                 | 2 - Memoria                           |
                 | 3 - Disco                             |
+                | 4 - Primeiro Plano                    |
                 *---------------------------------------*
                 """);
     }

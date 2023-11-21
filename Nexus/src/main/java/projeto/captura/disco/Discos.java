@@ -13,7 +13,7 @@ public class Discos {
     private Double capMax;
     private Double usoAtual;
     private String montagem;
-    private String endIPV4;
+    private String endIPV4 = "0.0.0.0";
     private Integer fkAlerta;
     private Integer fkComponente = 3;
     private String email;
@@ -59,8 +59,13 @@ public class Discos {
             // Quantidadde Usada
             usoAtual = Double.valueOf(df.format((capMax - livre)).replace(",", "."));
 
-            endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(0).getEnderecoIpv4().get(0);
-
+            for (int j = 0; j < looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().size(); i++) {
+                if (looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().isEmpty()){
+                    endIPV4 = "0";
+                } else {
+                    endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().get(0);
+                }
+            }
             Double porcentage = (usoAtual * 100) / capMax;
 
             if (porcentage <= 50) {
@@ -83,7 +88,7 @@ public class Discos {
             }
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto
-            disk[0] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+            disk[i] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
         }
 
         // Imprime as mensgens juntamente com os dados dos objetos
