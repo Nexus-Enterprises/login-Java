@@ -88,7 +88,7 @@ public class Discos {
             }
 
             // Envia todos os dados captados acima para o Arquivo que servira como objeto
-            disk[i] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+            disk[0] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
         }
 
         // Imprime as mensgens juntamente com os dados dos objetos

@@ -10,7 +10,7 @@ public class Conectar {
 
     private String url = "jdbc:mysql://localhost:3306/NEXUS";
     private String user = "root";
-    private String passwd = "nexus123";
+    private String passwd = "lisandracunha";
 
     private Logs informacoes = new Logs();
     private Menu menu = new Menu();
@@ -99,15 +99,21 @@ public class Conectar {
         return null;
     }
 
-    public Conectar inserirProcessos(Integer pid, String name, Double usoCPU, Double usoMem, Double usoDisk, String email) {
+    public Conectar inserirProcessos(String name, Double usoCPU, Double usoMem, Double usoDisk, String email) {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(url, user, passwd);
 
-            String cadastro = "INSERT INTO Processo (PID, nome, usoAtualRAM, usoAtualDisco, usoAtualCPU, dataHora, fkMaquina) VALUES (?, ?, ?, ?, ?, NOW(), (SELECT idMaquina FROM Maquina JOIN Funcionario ON Maquina.fkFuncionario = idFuncionario WHERE emailCorporativo = ?));";
+            String cadastro = "INSERT INTO Processo (nome, usoAtualRAM, usoAtualDisco, usoAtualCPU, dataHora, fkMaquina) VALUES (?, ?, ?, ?, NOW(), (SELECT idMaquina FROM Maquina JOIN Funcionario ON Maquina.fkFuncionario = idFuncionario WHERE emailCorporativo = ?));";
 
             PreparedStatement instrucao = conexao.prepareStatement(cadastro);
+
+            instrucao.setString(1, name);
+            instrucao.setDouble(2, usoMem);
+            instrucao.setDouble(3, usoDisk);
+            instrucao.setDouble(4, usoCPU);
+            instrucao.setString(5, email);
 
             instrucao.execute();
 

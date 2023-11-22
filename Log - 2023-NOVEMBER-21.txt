@@ -1,2 +1,8 @@
 
 ALERTA - Memoria Utilizada 94.01%
+ALERTA - Memoria Utilizada 69.2%
+ALERTA - Memoria Utilizada 70.47%
+ALERTA - Memoria Utilizada 74.52%
+ALERTA - Memoria Utilizada 73.76%
+ALERTA - Memoria Utilizada 71.23%
+ALERTA - Memoria Utilizada 68.19%
