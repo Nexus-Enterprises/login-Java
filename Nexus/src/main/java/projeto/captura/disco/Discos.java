@@ -58,57 +58,50 @@ public class Discos {
 
             // Quantidadde Usada
             usoAtual = Double.valueOf(df.format((capMax - livre)).replace(",", "."));
+            endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().get(0);
+        }
+        Double porcentage = (usoAtual * 100) / capMax;
 
-            for (int j = 0; j < looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().size(); i++) {
-                if (looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().isEmpty()){
-                    endIPV4 = "0";
-                } else {
-                    endIPV4 = looca.getRede().getGrupoDeInterfaces().getInterfaces().get(i).getEnderecoIpv4().get(0);
-                }
-            }
-            Double porcentage = (usoAtual * 100) / capMax;
+        if (porcentage <= 50) {
+            fkAlerta = 10;
+        } else if (porcentage > 50 && porcentage <= 75) {
+            fkAlerta = 7;
+            logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
 
-            if (porcentage <= 50) {
-                fkAlerta = 10;
-            } else if (porcentage > 50 && porcentage <= 75) {
-                fkAlerta = 7;
-                logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+            botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
+        } else if (porcentage > 75 && porcentage <= 90) {
+            fkAlerta = 8;
+            logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
 
-                botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
-            } else if (porcentage > 75 && porcentage <= 90) {
-                fkAlerta = 8;
-                logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+            botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
+        } else {
+            fkAlerta = 9;
+            logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
 
-                botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
-            } else {
-                fkAlerta = 9;
-                logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
-
-                botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
-            }
-
-            // Envia todos os dados captados acima para o Arquivo que servira como objeto
-            disk[0] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+            botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
         }
 
-        // Imprime as mensgens juntamente com os dados dos objetos
-        String mensagem = """
+        // Envia todos os dados captados acima para o Arquivo que servira como objeto
+        disk[0] = new DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+
+    // Imprime as mensgens juntamente com os dados dos objetos
+    String mensagem = """
                 *------------------------------------------------------------*
                 |                            Discos                          |
                 *------------------------------------------------------------*
                 """;
 
-        // percorre todo o arquivo e mostra todos os dados salvos
+    // percorre todo o arquivo e mostra todos os dados salvos
         for (DadosDisco dadosDisco : disk) {
-            mensagem += """
+        mensagem += """
                     | Modelo:                                     %s
                     | Montagem:                                   %s
                     | Espaco Total:                               %.2f Gb
                     *------------------------------------------------------------*
                     """.formatted(dadosDisco.modelo, dadosDisco.montagem,
-                    dadosDisco.capMax);
-        }
-        // retorna a String formatada para o MAIN
-        return mensagem;
+                dadosDisco.capMax);
     }
+    // retorna a String formatada para o MAIN
+        return mensagem;
+}
 }

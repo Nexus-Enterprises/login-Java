@@ -1,7 +1,11 @@
 package projeto.captura.PrimeiroPlano;
 
 import com.github.britooo.looca.api.core.Looca;
-import projeto.captura.disco.DadosDisco;
+import com.github.britooo.looca.api.group.processos.Processo;
+
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PrimeiroPlano {
     Looca looca = new Looca();
@@ -11,19 +15,45 @@ public class PrimeiroPlano {
     private Double usoDisk;
 
     public String dadosPrimeiro(String email) {
-        // define o tamnho da lista do getDisco
-        int size = looca.getGrupoDeProcessos().getProcessos().size();
+        // Supondo que looca.getGrupoDeProcessos().getProcessos() retorna uma List de Processo
+        List<Processo> processos = looca.getGrupoDeProcessos().getProcessos();
 
-        DadosPrimeiroPlano[] primeiroPlano = new DadosPrimeiroPlano[size];
+        // Ordenar processos por uso de CPU em ordem decrescente
+        List<Processo> top10Cpu = processos.stream()
+                .sorted(Comparator.comparing(Processo::getUsoCpu).reversed())
+                .limit(10)
+                .collect(Collectors.toList());
 
-        for (int i = 0; i < size; i++) {
-            size = looca.getGrupoDeProcessos().getProcessos().size();
-            name = looca.getGrupoDeProcessos().getProcessos().get(i).getNome();
-            usoCPU = looca.getGrupoDeProcessos().getProcessos().get(i).getUsoCpu();
-            usoMem = looca.getGrupoDeProcessos().getProcessos().get(i).getUsoMemoria();
-            usoDisk = ((Double.valueOf(looca.getGrupoDeProcessos().getProcessos().get(i).getBytesUtilizados()) / 1024) / 1024) / 1024;
+        // Ordenar processos por uso de disco em ordem decrescente
+        List<Processo> top10Disco = processos.stream()
+                .sorted(Comparator.comparing(p -> ((Double.valueOf(p.getBytesUtilizados()) / 1024) / 1024) / 1024, Comparator.reverseOrder()))
+                .limit(10)
+                .collect(Collectors.toList());
 
-            primeiroPlano[i] = new DadosPrimeiroPlano(name, usoMem, usoDisk, usoCPU, email);
+        // Ordenar processos por uso de memória em ordem decrescente
+        List<Processo> top10Memoria = processos.stream()
+                .sorted(Comparator.comparing(Processo::getUsoMemoria).reversed())
+                .limit(10)
+                .collect(Collectors.toList());
+
+        DadosPrimeiroPlano[] primeiroPlano = new DadosPrimeiroPlano[30];
+
+
+        // Iterar sobre os processos ordenados por uso de CPU e preencher o array
+        for (int i = 0; i < 10; i++) {
+            Processo processo = top10Cpu.get(i);
+            primeiroPlano[i] = new DadosPrimeiroPlano(processo.getNome(), processo.getUsoMemoria(), ((Double.valueOf(processo.getBytesUtilizados()) / 1024) / 1024) / 1024, processo.getUsoCpu(), email
+            );
+        }
+        for (int i = 0; i < 10; i++) {
+            Processo processo = top10Disco.get(i);
+            primeiroPlano[i] = new DadosPrimeiroPlano(processo.getNome(), processo.getUsoMemoria(), ((Double.valueOf(processo.getBytesUtilizados()) / 1024) / 1024) / 1024, processo.getUsoCpu(), email
+            );
+        }
+        for (int i = 0; i < 10; i++) {
+            Processo processo = top10Memoria.get(i);
+            primeiroPlano[i] = new DadosPrimeiroPlano(processo.getNome(), processo.getUsoMemoria(), ((Double.valueOf(processo.getBytesUtilizados()) / 1024) / 1024) / 1024, processo.getUsoCpu(), email
+            );
         }
 
         String mensagem = """
@@ -31,16 +61,6 @@ public class PrimeiroPlano {
                 |                 Procesos em Primeiro Plano                 |
                 *------------------------------------------------------------*
                 """;
-
-        for (DadosPrimeiroPlano dadosPrimeiroPlano : primeiroPlano) {
-            mensagem += """
-                -----------------------------------------------------
-                | Nome: %s
-                | Uso de CPU: %.2f
-                | Uso de RAM: %.2f
-                | Uso de Disco: %.2f
-                """.formatted(dadosPrimeiroPlano.name, dadosPrimeiroPlano.usoCPU, dadosPrimeiroPlano.usoMem, dadosPrimeiroPlano.usoDisk);
-        }
         return mensagem;
     }
 }

@@ -4,13 +4,15 @@ import projeto.captura.Monitoramento;
 import projeto.menu.Menu;
 import projeto.Logs;
 import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conectar {
-
-
+    ConectarSQL conectarSQL = new ConectarSQL();
     private String url = "jdbc:mysql://localhost:3306/NEXUS";
     private String user = "root";
-    private String passwd = "lisandracunha";
+    private String passwd = "nexus123";
 
     private Logs informacoes = new Logs();
     private Menu menu = new Menu();
@@ -23,53 +25,58 @@ public class Conectar {
         this.email = email;
         this.pass = pass;
 
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
+        Monitoramento monitoramento = new Monitoramento();
+        Boolean login = conectarSQL.Logar(email, pass);
 
-            Connection conexao = DriverManager.getConnection(url, user, passwd);
+        String sqlSelect = "SELECT emailCorporativo, token FROM Funcionario;";
+        if (login == true){
+            System.out.println("Sessao encerrada\n\n");
+        } else {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection conexao = DriverManager.getConnection(url, user, passwd);
+                Statement statement = conexao.createStatement();
+                ResultSet resposta = statement.executeQuery(sqlSelect);
 
-            Statement statement = conexao.createStatement();
+                while (resposta.next()) {
+                    String username = resposta.getString("emailCorporativo");
+                    String token = resposta.getString("token");
 
-            String sqlSelect = "SELECT emailCorporativo, token FROM Funcionario;";
+                    if (this.email.equals(username) && this.pass.equals(token)) {
+                        logado = true;
+                        System.out.println("""
+                                Login Realizado com Sucesso!
+                                                            
+                                    Seja Bem-Vindo
+                                """);
+                        System.out.println(username);
+                        monitoramento.monitor(username);
 
-            ResultSet resposta = statement.executeQuery(sqlSelect);
-
-            while (resposta.next()) {
-                String username = resposta.getString("emailCorporativo");
-                String token = resposta.getString("token");
-                Monitoramento monitoramento = new Monitoramento();
-
-                if (this.email.equals(username) && this.pass.equals(token)) {
-                    logado = true;
-                    System.out.println("""
-                            Login Realizado com Sucesso!
-                            
-                                Seja Bem-Vindo
-                            """);
-                    System.out.println(username);
-                    monitoramento.monitor(username);
-
-                } else {
-                    logado = false;
+                    } else {
+                        logado = false;
+                    }
                 }
-            }
 
-            resposta.close();
-            statement.close();
-            conexao.close();
-        } catch (SQLException | ClassNotFoundException throwables) {
-            System.out.println("""
-                                        
-                    Nenhum usuario encontrado
-                                        
-                    Por favor verifique as credenciais
-                    """);
-            logado = false;
+                resposta.close();
+                statement.close();
+                conexao.close();
+            } catch (SQLException | ClassNotFoundException throwables) {
+                System.out.println("""
+                                            
+                        Nenhum usuario encontrado
+                                            
+                        Por favor verifique as credenciais
+                        """);
+                logado = false;
+            }
+            return logado;
         }
-        return logado;
+        return login;
     }
 
     public Conectar DadosDisco(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email) {
+
+        conectarSQL.DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -101,6 +108,8 @@ public class Conectar {
 
     public Conectar inserirProcessos(String name, Double usoCPU, Double usoMem, Double usoDisk, String email) {
 
+        conectarSQL.inserirProcessos(name, usoCPU,usoMem, usoDisk, email);
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(url, user, passwd);
@@ -128,6 +137,9 @@ public class Conectar {
     }
 
     public Conectar inserirMemoria(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email){
+
+        conectarSQL.inserirMemoria(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(url, user, passwd);
@@ -158,6 +170,9 @@ public class Conectar {
     }
 
     public Conectar inserirProcessador(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email){
+
+        conectarSQL.inserirProcessador(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+
         try {
             Class.forName("com.mysql.jdbc.Driver");
             Connection conexao = DriverManager.getConnection(url, user, passwd);

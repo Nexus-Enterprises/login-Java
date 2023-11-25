@@ -1,0 +1,18 @@
+
+ALERTA - Memoria Utilizada 94.63%
+ALERTA - Memoria Utilizada 76.75%
+ALERTA - Memoria Utilizada 76.25%
+ALERTA - Memoria Utilizada 81.5%
+ALERTA - Memoria Utilizada 83.75%
+ALERTA - Memoria Utilizada 89.25%
+ALERTA - Memoria Utilizada 88.13%
+ALERTA - Memoria Utilizada 90.63%
+ALERTA - Memoria Utilizada 91.25%
+ALERTA - CPU Utilizado 57.05%
+ALERTA - Memoria Utilizada 88.25%
+ALERTA - Memoria Utilizada 91.25%
+ALERTA - Memoria Utilizada 91.38%
+ALERTA - CPU Utilizado 70.77%
+ALERTA - Memoria Utilizada 91.25%
+ALERTA - Memoria Utilizada 91.5%
+ALERTA - Memoria Utilizada 91.38%

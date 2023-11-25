@@ -29,7 +29,7 @@ public class Processador {
         String modelo = "";
         String montagem = "";
         Integer fkAlerta;
-        Integer fkComponente = 2;
+        Integer fkComponente = 1;
 
 
         // Pega a Frequencia e faz calculo de GHz
