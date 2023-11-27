@@ -1,6 +1,7 @@
 package projeto.conexao;
 
 import projeto.captura.Monitoramento;
+import projeto.print.Prints;
 
 import java.sql.*;
 
@@ -16,6 +17,7 @@ public class ConectarSQL {
     public Boolean Logar(String email, String pass) {
         this.email = email;
         this.pass = pass;
+        Prints prints = new Prints();
 
         String sqlSelect = "SELECT nome, emailCorporativo, token FROM Funcionario;";
 
@@ -30,7 +32,8 @@ public class ConectarSQL {
                 String nome = respostaSQL.getString("nome");
 
                 if (this.email.equals(username) && this.pass.equals(token)) {
-                    logado = true;
+
+                    prints.limparConsole();
                     System.out.println("""
                             Login Realizado com Sucesso!
                             
@@ -39,6 +42,7 @@ public class ConectarSQL {
                     System.out.println(nome);
 
                     monitoramento.monitor(username);
+                    return true;
                 } else {
                     logado = false;
                 }

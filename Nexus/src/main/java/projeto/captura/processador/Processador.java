@@ -6,6 +6,7 @@ import oshi.hardware.CentralProcessor;
 import projeto.BotSlack;
 import projeto.conexao.Conectar;
 import projeto.Logs;
+import projeto.print.Prints;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -67,17 +68,17 @@ public class Processador {
             fkAlerta = 10;
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 1;
-            logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
+            logs.gravar("\nALERTA BAIXO - CPU Utilizado %.2f%%".formatted(porcentage));
 
             botSlack.notificarUsoCPUPorcentagem("CPU", porcentage);
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 2;
-            logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
+            logs.gravar("\nALERTA MEDIO - CPU Utilizado %.2f%%".formatted(porcentage));
 
             botSlack.notificarUsoCPUPorcentagem("CPU", porcentage);
         } else {
             fkAlerta = 3;
-            logs.gravar("\nALERTA - CPU Utilizado %.2f%%".formatted(porcentage));
+            logs.gravar("\nALERTA GRAVE - CPU Utilizado %.2f%%".formatted(porcentage));
 
             botSlack.notificarUsoCPUPorcentagem("CPU", porcentage);
         }

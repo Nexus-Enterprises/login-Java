@@ -18,8 +18,10 @@ public class Login {
     public Boolean login() {
         Integer n = 0;
         while (!logado) {
+            prints.limparConsole();
             if (logado == false) {
                 if (n == 0) {
+                    System.out.println("            LOGIN       ");
                     prints.username();
                     username = scanner.nextLine();
                     prints.token();

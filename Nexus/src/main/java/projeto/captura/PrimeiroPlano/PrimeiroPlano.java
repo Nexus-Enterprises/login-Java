@@ -2,6 +2,7 @@ package projeto.captura.PrimeiroPlano;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.processos.Processo;
+import projeto.print.Prints;
 
 import java.util.Comparator;
 import java.util.List;
@@ -55,7 +56,6 @@ public class PrimeiroPlano {
             primeiroPlano[i] = new DadosPrimeiroPlano(processo.getNome(), processo.getUsoMemoria(), ((Double.valueOf(processo.getBytesUtilizados()) / 1024) / 1024) / 1024, processo.getUsoCpu(), email
             );
         }
-
         String mensagem = """
                 *------------------------------------------------------------*
                 |                 Procesos em Primeiro Plano                 |

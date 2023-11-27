@@ -4,6 +4,7 @@ import com.github.britooo.looca.api.core.Looca;
 import projeto.BotSlack;
 import projeto.conexao.Conectar;
 import projeto.Logs;
+import projeto.print.Prints;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -44,18 +45,18 @@ public class Memoria {
             fkAlerta = 10;
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 4;
-            logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            logs.gravar("\nALERTA BAIXO - Memoria Utilizada %s%%".formatted(porcentage.toString()));
 
             botSlack.notificarUsoMemoriaPorcentagem("Memoria" ,porcentage);
 
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 5;
-            logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage.toString()));
+            logs.gravar("\nALERTA MEDIO - Memoria Utilizada %s%%".formatted(porcentage.toString()));
 
             botSlack.notificarUsoMemoriaPorcentagem("Memoria" ,porcentage);
         } else {
             fkAlerta = 6;
-            logs.gravar("\nALERTA - Memoria Utilizada %s%%".formatted(porcentage));
+            logs.gravar("\nALERTA GRAVE - Memoria Utilizada %s%%".formatted(porcentage));
 
             botSlack.notificarUsoMemoriaPorcentagem("Memoria" ,porcentage);
         }

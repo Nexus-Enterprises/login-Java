@@ -1,0 +1,11 @@
+
+ALERTA - Memoria Utilizada 92.25%
+ALERTA - Memoria Utilizada 94.88%
+ALERTA - Memoria Utilizada 94.13%
+ALERTA - Memoria Utilizada 95.0%
+ALERTA - Memoria Utilizada 95.38%
+ALERTA GRAVE - Memoria Utilizada 95.38%
+ALERTA GRAVE - Memoria Utilizada 95.0%
+ALERTA MEDIO - CPU Utilizado 85.94%
+ALERTA GRAVE - Memoria Utilizada 95.25%
+ALERTA GRAVE - CPU Utilizado 90.01%

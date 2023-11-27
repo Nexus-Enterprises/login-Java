@@ -4,6 +4,7 @@ import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
 import projeto.BotSlack;
 import projeto.Logs;
+import projeto.print.Prints;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
@@ -66,17 +67,17 @@ public class Discos {
             fkAlerta = 10;
         } else if (porcentage > 50 && porcentage <= 75) {
             fkAlerta = 7;
-            logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+            logs.gravar("ALERTA BAIXO - Disco Utilizado %.2f%%".formatted(porcentage));
 
             botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
         } else if (porcentage > 75 && porcentage <= 90) {
             fkAlerta = 8;
-            logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+            logs.gravar("ALERTA MEDIO - Disco Utilizado %.2f%%".formatted(porcentage));
 
             botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
         } else {
             fkAlerta = 9;
-            logs.gravar("ALERTA - Disco Utilizado %.2f%%".formatted(porcentage));
+            logs.gravar("ALERTA GRAVE - Disco Utilizado %.2f%%".formatted(porcentage));
 
             botSlack.notificarUsoDiscoPorcentagem("Disco", porcentage);
         }

@@ -3,6 +3,8 @@ package projeto.conexao;
 import projeto.captura.Monitoramento;
 import projeto.menu.Menu;
 import projeto.Logs;
+import projeto.print.Prints;
+
 import java.sql.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,6 +26,7 @@ public class Conectar {
     public Boolean Logar(String email, String pass) {
         this.email = email;
         this.pass = pass;
+        Prints prints = new Prints();
 
         Monitoramento monitoramento = new Monitoramento();
         Boolean login = conectarSQL.Logar(email, pass);
@@ -44,6 +47,8 @@ public class Conectar {
 
                     if (this.email.equals(username) && this.pass.equals(token)) {
                         logado = true;
+
+                        prints.limparConsole();
                         System.out.println("""
                                 Login Realizado com Sucesso!
                                                             
