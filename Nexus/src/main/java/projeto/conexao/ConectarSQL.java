@@ -14,14 +14,21 @@ public class ConectarSQL {
     private String pass;
     private Boolean logado;
 
-    public Boolean Logar(String email, String pass) {
+    public Boolean Logar(String email, String pass) throws ClassNotFoundException {
         this.email = email;
         this.pass = pass;
         Prints prints = new Prints();
 
         String sqlSelect = "SELECT nome, emailCorporativo, token FROM Funcionario;";
 
+        try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
         try (Connection conexaoSQL = DriverManager.getConnection(urlSQL);
+
              PreparedStatement preparedStatement = conexaoSQL.prepareStatement(sqlSelect)) {
 
             ResultSet respostaSQL = preparedStatement.executeQuery();
@@ -63,7 +70,8 @@ public class ConectarSQL {
         }
         return logado;
     }
-    public ConectarSQL DadosDisco(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email) {
+    public ConectarSQL DadosDisco(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email) throws ClassNotFoundException {
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
 
         try {
             Connection conexaoSQL = DriverManager.getConnection(urlSQL);
@@ -92,8 +100,9 @@ public class ConectarSQL {
         }
         return null;
     }
-    public Conectar inserirProcessos(String name, Double usoCPU, Double usoMem, Double usoDisk, String email) {
+    public Conectar inserirProcessos(String name, Double usoCPU, Double usoMem, Double usoDisk, String email) throws ClassNotFoundException {
 
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         try {
             Connection conexaoSQL = DriverManager.getConnection(urlSQL);
 
@@ -118,9 +127,11 @@ public class ConectarSQL {
         }
         return null;
     }
-    public Conectar inserirMemoria(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email){
+    public Conectar inserirMemoria(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email) throws ClassNotFoundException {
+        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         try {
             Connection conexaoSQL = DriverManager.getConnection(urlSQL);
+
             String cadastro = "INSERT INTO Registro (modelo, capacidadeMax, usoAtual, montagem, enderecoIPV4, dataHora, fkAlerta, fkComponente, " +
                     "fkMaquina) VALUES (?, ?, ?, ?, ?, GETDATE(), ?, ?, (SELECT idMaquina FROM Maquina JOIN Funcionario ON Maquina.fkFuncionario = idFuncionario WHERE emailCorporativo = ?));\n";
 
@@ -148,7 +159,13 @@ public class ConectarSQL {
     }
     public Conectar inserirProcessador(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email){
         try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        try {
             Connection conexaoSQL = DriverManager.getConnection(urlSQL);
+
             String cadastro = "INSERT INTO Registro (modelo, capacidadeMax, usoAtual, montagem, enderecoIPV4, dataHora, fkAlerta, fkComponente, " +
                     "fkMaquina) VALUES (?, ?, ?, ?, ?, GETDATE(), ?, ?, (SELECT idMaquina FROM Maquina JOIN Funcionario ON Maquina.fkFuncionario = idFuncionario WHERE emailCorporativo = ?));\n";
 

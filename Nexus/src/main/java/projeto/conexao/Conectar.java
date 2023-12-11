@@ -29,7 +29,12 @@ public class Conectar {
         Prints prints = new Prints();
 
         Monitoramento monitoramento = new Monitoramento();
-        Boolean login = conectarSQL.Logar(email, pass);
+        Boolean login = null;
+        try {
+            login = conectarSQL.Logar(email, pass);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         String sqlSelect = "SELECT emailCorporativo, token FROM Funcionario;";
         if (login == true){
@@ -81,7 +86,11 @@ public class Conectar {
 
     public Conectar DadosDisco(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email) {
 
-        conectarSQL.DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+        try {
+            conectarSQL.DadosDisco(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -113,7 +122,11 @@ public class Conectar {
 
     public Conectar inserirProcessos(String name, Double usoCPU, Double usoMem, Double usoDisk, String email) {
 
-        conectarSQL.inserirProcessos(name, usoCPU,usoMem, usoDisk, email);
+        try {
+            conectarSQL.inserirProcessos(name, usoCPU,usoMem, usoDisk, email);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -143,7 +156,11 @@ public class Conectar {
 
     public Conectar inserirMemoria(String modelo, Double capMax, Double usoAtual, String montagem, String endIPV4, Integer fkAlerta, Integer fkComponente, String email){
 
-        conectarSQL.inserirMemoria(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+        try {
+            conectarSQL.inserirMemoria(modelo, capMax, usoAtual, montagem, endIPV4, fkAlerta, fkComponente, email);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
